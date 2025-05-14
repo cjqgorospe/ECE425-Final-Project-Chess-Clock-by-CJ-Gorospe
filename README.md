@@ -44,6 +44,9 @@ This project implements a two-player digital chess clock using the Tiva C Series
 
 Each player starts with a predefined time (e.g., 60 seconds). When one player completes their move, they press a button to end their turn, and the clock switches to the other player. The timer pauses, resumes, resets, and handles timeouts with clear feedback via the LCD and colored LED indicators.
 
+# Methodology
+The three main drivers that is required for the chess clock to be considered are the GPIO, System Tick Delay, and LCD drivers. In the condensed version of the chess clock implementation, the GPIO driver is used to implement the LEDs on the LaunchPad and to initialize the EduBase board buttons to work for specific functions, the System Tick Delay driver provides the timer for the LCD to decrement the player timer while remaining consistent with the LEDs as each player progress through the game, and the LCD acts as the main display for the entire clock. Without the rotary encoder, the default game speed was set to 60 seconds for proper output display on the LCD, and the LCD main display was the timers of players one and two on row one and different game messages, like “Press SW4 to Start”, “P1 Lost, or “P2 Lost”, on row two. The EduBase board buttons had unique functions of the chess clock: button one (SW2) was used to pause and resume the timer, button two (SW3) was used to toggle between the player’s turn, button three (SW4) was used to start the game, and button four (SW5) was used to restart the timer and game. 
+
 # Components Used 
 ![Screenshot 2025-05-13 235929](https://github.com/user-attachments/assets/a61f1f8c-b380-443b-86b3-869dee518b7b)
 
